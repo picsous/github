@@ -1,4 +1,4 @@
-package com.victorely.github.github;
+package com.victorely.github;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
