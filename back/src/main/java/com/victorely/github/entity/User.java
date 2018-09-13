@@ -8,7 +8,8 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-public class User implements UserDetails
+public class User
+    implements UserDetails
 {
 
     @Id
@@ -30,6 +31,7 @@ public class User implements UserDetails
     private List<Role> roles;
 
     private String photoUrl;
+
     private String photoUrlThumb;
 
     @Override

@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Role implements GrantedAuthority
+public class Role
+    implements GrantedAuthority
 {
 
     @Id
@@ -16,11 +17,13 @@ public class Role implements GrantedAuthority
 
     private String role;
 
-    public String getRole() {
+    public String getRole()
+    {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(String role)
+    {
         this.role = role;
     }
 
