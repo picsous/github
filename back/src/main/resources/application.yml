@@ -18,3 +18,8 @@ spring:
   security:
     basic:
       enabled: false
+
+  storage:
+    url: "storage"
+    image:
+      url: "/image"
