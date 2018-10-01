@@ -4,12 +4,13 @@ import com.victorely.github.entities.User;
 import org.bouncycastle.jcajce.provider.digest.SHA3;
 import org.springframework.stereotype.Service;
 
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 
 @Service
 public class PasswordEncrypter {
+
     public static void encryptPassword(User... user) {
-        for (User u: user) {
+        for (User u : user) {
             encryptPassword(u);
         }
     }
@@ -22,12 +23,7 @@ public class PasswordEncrypter {
 
     public static String encryptPassword(String password) {
         SHA3.DigestSHA3 sha3Password = new SHA3.DigestSHA3(512);
-        try {
-            sha3Password.update(password.getBytes("UTF-8"));
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            return null;
-        }
+        sha3Password.update(password.getBytes(StandardCharsets.UTF_8));
 
         byte[] digestPassword = sha3Password.digest();
         String encryptedPassword = "";

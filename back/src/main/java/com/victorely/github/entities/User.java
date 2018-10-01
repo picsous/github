@@ -26,6 +26,9 @@ public class User
 
     private String mail;
 
+    @JsonIgnore
+    private String token;
+
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
 
@@ -130,5 +133,13 @@ public class User
 
     public void setPhotoUrlThumb(String photoUrlThumb) {
         this.photoUrlThumb = photoUrlThumb;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }
