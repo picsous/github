@@ -1,4 +1,4 @@
-package com.victorely.github.entity;
+package com.victorely.github.entities;
 
 import org.springframework.security.core.GrantedAuthority;
 
@@ -8,8 +8,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Role
-    implements GrantedAuthority
-{
+        implements GrantedAuthority {
 
     @Id
     @GeneratedValue
@@ -17,29 +16,24 @@ public class Role
 
     private String role;
 
-    public String getRole()
-    {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(String role)
-    {
+    public void setRole(String role) {
         this.role = role;
     }
 
-    public Long getId()
-    {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Long id)
-    {
+    public void setId(Long id) {
         this.id = id;
     }
 
     @Override
-    public String getAuthority()
-    {
+    public String getAuthority() {
         return null;
     }
 

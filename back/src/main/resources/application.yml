@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://${MYSQL_DB:localhost}/github?createDatabaseIfNotExist=true&useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost/github?createDatabaseIfNotExist=true&useSSL=false
     username: root
     password: MuseU2&Coldplay
 

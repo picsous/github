@@ -1,4 +1,4 @@
-package com.victorely.github.entity;
+package com.victorely.github.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,8 +9,7 @@ import java.util.List;
 
 @Entity
 public class User
-    implements UserDetails
-{
+        implements UserDetails {
 
     @Id
     @GeneratedValue
@@ -35,124 +34,101 @@ public class User
     private String photoUrlThumb;
 
     @Override
-    public Collection<Role> getAuthorities()
-    {
+    public Collection<Role> getAuthorities() {
         return roles;
     }
 
     @Override
-    public String getPassword()
-    {
+    public String getPassword() {
         return null;
     }
 
     @Override
-    public String getUsername()
-    {
+    public String getUsername() {
         return null;
     }
 
     @Override
-    public boolean isAccountNonExpired()
-    {
+    public boolean isAccountNonExpired() {
         return false;
     }
 
     @Override
-    public boolean isAccountNonLocked()
-    {
+    public boolean isAccountNonLocked() {
         return false;
     }
 
     @Override
-    public boolean isCredentialsNonExpired()
-    {
+    public boolean isCredentialsNonExpired() {
         return false;
     }
 
     @Override
-    public boolean isEnabled()
-    {
+    public boolean isEnabled() {
         return true;
     }
 
-    public Long getId()
-    {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Long id)
-    {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public void setUsername(String username)
-    {
+    public void setUsername(String username) {
         this.username = username;
     }
 
-    public String getFirstName()
-    {
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName)
-    {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public String getLastName()
-    {
+    public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName)
-    {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    public void setPassword(String password)
-    {
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    public String getMail()
-    {
+    public String getMail() {
         return mail;
     }
 
-    public void setMail(String mail)
-    {
+    public void setMail(String mail) {
         this.mail = mail;
     }
 
-    public List<Role> getRoles()
-    {
+    public List<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<Role> roles)
-    {
+    public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
 
-    public String getPhotoUrl()
-    {
+    public String getPhotoUrl() {
         return photoUrl;
     }
 
-    public void setPhotoUrl(String photoUrl)
-    {
+    public void setPhotoUrl(String photoUrl) {
         this.photoUrl = photoUrl;
     }
 
-    public String getPhotoUrlThumb()
-    {
+    public String getPhotoUrlThumb() {
         return photoUrlThumb;
     }
 
-    public void setPhotoUrlThumb(String photoUrlThumb)
-    {
+    public void setPhotoUrlThumb(String photoUrlThumb) {
         this.photoUrlThumb = photoUrlThumb;
     }
 }
