@@ -8,8 +8,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-public class User
-        implements UserDetails {
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue
@@ -32,23 +31,25 @@ public class User
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
 
-    private String photoUrl;
-
-    private String photoUrlThumb;
-
-    @Override
-    public Collection<Role> getAuthorities() {
-        return roles;
+    public User(String username, String firstName, String lastName, String password, String mail, List<Role> roles) {
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.mail = mail;
+        this.roles = roles;
     }
 
-    @Override
-    public String getPassword() {
-        return null;
+    public Long getId() {
+        return id;
     }
 
-    @Override
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getUsername() {
-        return null;
+        return username;
     }
 
     @Override
@@ -71,16 +72,45 @@ public class User
         return true;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @Override
+    public Collection<Role> getAuthorities() {
+        return roles;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 
     public String getFirstName() {
@@ -99,47 +129,4 @@ public class User
         this.lastName = lastName;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
-    }
-
-    public String getPhotoUrl() {
-        return photoUrl;
-    }
-
-    public void setPhotoUrl(String photoUrl) {
-        this.photoUrl = photoUrl;
-    }
-
-    public String getPhotoUrlThumb() {
-        return photoUrlThumb;
-    }
-
-    public void setPhotoUrlThumb(String photoUrlThumb) {
-        this.photoUrlThumb = photoUrlThumb;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
 }
