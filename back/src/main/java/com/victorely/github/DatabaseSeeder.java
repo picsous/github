@@ -6,17 +6,13 @@ import com.victorely.github.entities.User;
 import com.victorely.github.repositories.RoleRepository;
 import com.victorely.github.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import static com.victorely.github.constants.RolesNames.ROLE_ADMIN;
 import static com.victorely.github.constants.RolesNames.ROLE_USER;
 
-@Service
+
 public class DatabaseSeeder {
 
     @Autowired
@@ -37,9 +33,9 @@ public class DatabaseSeeder {
     }
 
     private boolean isDatabaseSeeded() {
-        User user = userRepository.findOne(1L);
+        Optional<User> user = userRepository.findById(1L);
         // if it's found, the database is already seeded
-        return user != null;
+        return user.isPresent();
     }
 
     private void runSeedDatabase() {
@@ -50,7 +46,9 @@ public class DatabaseSeeder {
         List<Role> lRoleAdmin = new ArrayList<>(Collections.singleton(roleAdmin));
         List<Role> lRoleUser = new ArrayList<>(Collections.singleton(roleUser));
 
-        User admin = new User("admin", "Victor", "ELY", "test", "victor.ely@orange.fr", lRoleAdmin);
+        List<Role> lRoleAdminAndUser = new ArrayList<>(Arrays.asList(roleAdmin, roleUser));
+
+        User admin = new User("admin", "Victor", "ELY", "test", "victor.ely@orange.fr", lRoleAdminAndUser);
         User user = new User("user", "Amalric", "DE BUFFIERE", "test", "victor.ely@orange.fr", lRoleUser);
 
         PasswordEncrypter.encryptPassword(admin, user);
@@ -58,8 +56,8 @@ public class DatabaseSeeder {
         List<User> users = new ArrayList<>(Arrays.asList(admin, user));
         List<Role> roles = new ArrayList<>(Arrays.asList(roleAdmin, roleUser));
 
-        roleRepository.save(roles);
-        userRepository.save(users);
+        roleRepository.saveAll(roles);
+        userRepository.saveAll(users);
 
     }
 

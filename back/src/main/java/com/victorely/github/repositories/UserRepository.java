@@ -7,11 +7,13 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserRepository extends CrudRepository<User, Long> {
+
     List<User> findAll();
 
-    User findOne(Long id);
+    Optional<User> findById(Long id);
 
     User findByToken(String token);
 
