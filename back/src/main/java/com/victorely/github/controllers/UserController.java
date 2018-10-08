@@ -1,15 +1,15 @@
 package com.victorely.github.controllers;
 
+import com.victorely.github.constants.RolesNames;
 import com.victorely.github.dto.LoginFormDTO;
 import com.victorely.github.dto.SuccessfulLoginDTO;
 import com.victorely.github.entities.User;
 import com.victorely.github.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
@@ -30,5 +30,12 @@ public class UserController {
 
         return new SuccessfulLoginDTO(user);
     }
+
+    @GetMapping("/student")
+    @RolesAllowed({ RolesNames.ROLE_ADMIN })
+    public Page<User> getAllUsers(@RequestParam(defaultValue = "0") int page) {
+        return userService.getAll(page);
+    }
+
 
 }
