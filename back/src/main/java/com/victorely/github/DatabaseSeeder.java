@@ -12,7 +12,6 @@ import java.util.*;
 import static com.victorely.github.constants.RolesNames.ROLE_ADMIN;
 import static com.victorely.github.constants.RolesNames.ROLE_USER;
 
-
 public class DatabaseSeeder {
 
     @Autowired
@@ -33,7 +32,8 @@ public class DatabaseSeeder {
     }
 
     private boolean isDatabaseSeeded() {
-        Optional<User> user = userRepository.findById(1L);
+        //TODO ...
+        Optional<User> user = userRepository.findById(3L);
         // if it's found, the database is already seeded
         return user.isPresent();
     }

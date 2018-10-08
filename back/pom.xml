@@ -81,6 +81,12 @@
 			<type>jar</type>
 		</dependency>
 
+		<dependency>
+			<groupId>org.tensorflow</groupId>
+			<artifactId>tensorflow</artifactId>
+			<version>1.11.0</version>
+		</dependency>
+
     </dependencies>
 
 	<build>

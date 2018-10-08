@@ -8,6 +8,10 @@ import javax.persistence.Id;
 
 @Entity
 public class Role implements GrantedAuthority {
+
+    public Role(){
+    }
+
     @Id
     @GeneratedValue
     private Long id;

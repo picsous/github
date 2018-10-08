@@ -10,6 +10,9 @@ import java.util.List;
 @Entity
 public class User implements UserDetails {
 
+    public User(){
+    }
+
     @Id
     @GeneratedValue
     private Long id;

@@ -37,8 +37,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
 
                 // Allow all requesets on the login endpoint :
-                // use .antMatchers("/**").permitAll() to disable authentication everywhere
-                .antMatchers("/user/login").permitAll()
+                // use
+                .antMatchers("/**").permitAll() //to disable authentication everywhere
+                //.antMatchers("/user/login").permitAll()
                 // Request authentication on every other request :
                 .anyRequest().authenticated();
     }
